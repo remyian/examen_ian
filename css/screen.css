@@ -52,7 +52,7 @@ html {
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: white;
+    background-color: var(--global-color-background);
 }
 
 *,
@@ -219,6 +219,22 @@ input:disabled {
 #OBJECTS
 \*------------------------------------*/
 
+/* container */
+@media (min-width: 420px) {
+    .o-container-box{
+        margin-top: 3em;
+        margin-bottom: 3em;
+        max-width: 32em;
+        max-height: 50em;
+        background-color: white;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+       
+    } 
+}
+
+
 /*
     Objects: Row
     ---
@@ -350,8 +366,19 @@ input:disabled {
 }
 
 .c-form{
-    margin: 2em;
+    margin: 1em;
 }
+
+.c-textcolor-dark{
+    color: var(--global-color-text-header);
+    font-weight: 600;
+}
+
+.c-textcolor-light{
+    color: var(--global-color-text);
+}
+
+
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
