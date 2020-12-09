@@ -21,7 +21,7 @@
 :root {
     /* colors */
     --global-color-background: #F6F5F7;
-    --global-color-alpha: #ffffff;
+    --global-color-alpha: #4E00EA;
     --global-color-alpha-dark: #4E00EA;
     --global-color-fill: #DCDAE0;
 
@@ -597,9 +597,31 @@ input:disabled {
     background-color: var(--global-color-fill);
 }
 
+/*
+    CUSTOM CHECKBOX
+*/
+.c-custom-option__fake-input--checkbox {
+    border-radius: var(--custom-option-borderRadius);
+}
 
+.c-custom-option__fake-input--checkbox .c-custom-option__symbol {
+    width: 10px;
+    height: 10px;
+    fill: var(--custom-option__symbol-fill);
+}
 
+/* checkbox grid */
+.c-board {
+    display: grid;
+    grid-row-gap: 0.5em;
+    grid-column-gap: 0.5em;
+    grid-template-columns: repeat(5, 1fr);
+} 
 
+/* textarea */
+.c-textarea{
+    
+}
 
 /*------------------------------------*\
 #UTILITIES
