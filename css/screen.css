@@ -21,8 +21,24 @@
 :root {
     /* colors */
     --global-color-background: #F6F5F7;
-    --global-color-alpha: #DCDAE0;
+    --global-color-alpha: #4E00EA;
     --global-color-alpha-dark: #4E00EA;
+
+    --global-color-neutral-xxxx-light: #F5F6FA;
+    --global-color-neutral-xxx-light: #E2E3E7;
+    --global-color-neutral-xx-light: #caccd4;
+    --global-color-neutral-x-light: #b5b6c0;
+    --global-color-neutral-light: #a0a1ad;
+    --global-color-neutral: #8b8c9a;
+    --global-color-neutral-dark: #757787;
+    --global-color-neutral-x-dark: #606274;
+    --global-color-neutral-xx-dark: #4b4c60;
+    --global-color-neutral-xxx-dark: #35374d;
+    --global-color-neutral-xxxx-dark: #20223a;
+    --global-color-error: #FF3333;
+    --global-color-error-transparent: #FF3333bf;
+    --global-color-error-x-transparent: #FF33334d;
+
     /* fonts */
     --global-color-text: #47454D;
     --global-color-text-header: #17161A;
@@ -31,7 +47,35 @@
     --global-color-shadow: #DCDAE0;
     /* borders */
 
+    /* border radius */
+    --global-borderRadius: 3px;
+    --global-borderWidth: 1px;
+
     /* transitions */
+
+    /* Baseline settings */
+    --global-baseline: 8px;         
+    --global-whitespace: calc(var(--global-baseline) * 3); /* = 24px */
+
+    --global-whitespace-xs: calc(var(--global-baseline) * .5); /* = 4px */
+    --global-whitespace-sm: calc(var(--global-baseline) * 1); /*  = 8px */
+    --global-whitespace-md: calc(var(--global-baseline) * 2); /*  = 16px */
+    --global-whitespace-lg: calc(var(--global-baseline) * 4); /*  = 32px */
+    --global-whitespace-xl: calc(var(--global-whitespace) * 2); /*  = 48px */
+    --global-whitespace-xxl: calc(var(--global-whitespace) * 3); /*  = 72px */
+
+    /* forms */
+    --global-label-color: var(--global-color-neutral-xx-dark);
+    --global-placeholder-color: var(--global-color-neutral-x-light);
+    --global-input-backgroundColor: White;
+    --global-input-color: var(--global-color-neutral-xxxx-dark);
+    --global-input-borderColor: var(--global-color-neutral-xxx-light);
+    --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
+    --global-input-focus-borderColor: var(--global-color-alpha);
+    --global-input-error-borderColor: var(--global-color-error);
+    --global-input-focus-boxShadowSpread: 0 0 0 3px;
+    --global-input-focus-boxShadowColor: var(--global-color-alpha-x-transparent);
+    --global-input-error-boxShadowColor: var(--global-color-error-x-transparent);
 }
 
 /*------------------------------------*\
@@ -234,6 +278,21 @@ input:disabled {
     } 
 }
 
+.o-list {
+    list-style: none;
+    padding: 0;
+}
+
+.o-hide-accessible {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
 
 /*
     Objects: Row
@@ -356,6 +415,11 @@ input:disabled {
     border: 0;
 }
 
+
+
+
+
+
 /*------------------------------------*\
 #COMPONENTS
 \*------------------------------------*/
@@ -377,6 +441,160 @@ input:disabled {
 .c-textcolor-light{
     color: var(--global-color-text);
 }
+
+
+
+/*
+    CUSTOM ITEMS GEMEENSCHAPPELIJK
+*/
+.c-option-list {
+    margin-bottom: var(--global-whitespace-lg);
+}
+
+.c-form-field {
+    position: relative;
+}
+
+.is-floating,
+.c-form-field:focus-within .c-label--floating {
+    transform: translateY(calc(var(--global-baseline) * -3))
+}
+
+.c-form-field--option {
+    display: flex;
+    align-items: center;
+}
+
+.c-option-list__item {
+    margin-bottom: calc(var(--global-baseline) * 1.5);
+}
+
+.c-custom-option {
+    --custom-option-background: var(--global-input-backgroundColor);
+    --custom-option-borderRadius: var(--global-borderRadius);
+    --custom-option-borderColor: var(--global-input-borderColor);
+    --custom-option-hover-borderColor: var(--global-input-hover-borderColor);
+    --custom-option-focus-borderColor: var(--global-input-focus-borderColor);
+    --custom-option-focus-boxShadowColor: var(--global-input-focus-boxShadowColor);
+    --custom-option-focus-boxShadow: var(--global-input-focus-boxShadowSpread) var(--custom-option-focus-boxShadowColor);
+    --custom-option__symbol-fill: var(--global-color-alpha);
+    --custom-option-transition: var(--global-transitionDuration-alpha) var(--global-transitionEasing-out);
+    display: flex;
+    align-items: center;
+}
+
+
+.c-option {
+    margin-right: var(--global-whitespace-sm);
+}
+
+.c-option--hidden:focus + .c-custom-option,
+.c-option--hidden:active + .c-custom-option {
+    --custom-option-borderColor: var(--custom-option-focus-borderColor);
+    --custom-option-boxShadow: var(--custom-option-focus-boxShadow);
+}
+
+.c-option--hidden:checked + .c-custom-option .c-custom-option__symbol {
+    opacity: 1; /* Show the symbol when the invisible checkbox/radio button is checked */
+    transform: scale(1);
+}
+
+.c-option--hidden:focus + .c-custom-toggle,
+.c-option--hidden:active + .c-custom-toggle {
+    --toggle-borderColor: var(--toggle-focus-borderColor);
+    --toggle-boxShadow: var(--toggle-focus-boxShadow);
+}
+
+.c-option--hidden:checked + .c-custom-toggle {
+    --toggle-backgroundColor: var(--toggle-checked-backgroundColor);
+    --toggle-borderColor: var(--toggle-checked-borderColor);
+    --toggle__switch-backgroundColor: var(--toggle__switch-checked-backgroundColor);
+}
+
+.c-option--hidden:checked + .c-custom-toggle .c-custom-toggle__fake-input::after {
+    transform: translate(24px,0);
+}
+
+/* special active state */
+
+.c-option--hidden:active + .c-custom-toggle .c-custom-toggle__fake-input::after {
+    width: 28px;
+}
+
+.c-option--hidden:active:checked + .c-custom-toggle .c-custom-toggle__fake-input::after {
+    margin-left: -6px;
+}
+
+.c-label {
+    margin-bottom: 0;
+    font-size: 14px;
+    padding-bottom: var(--global-whitespace-sm);    
+    line-height: calc(var(--global-baseline) * 2);
+    color: var(--label-color, var(--global-label-color));
+}
+
+.c-label--option {
+    padding-bottom: 0;
+}
+
+
+
+.c-custom-option:hover {
+    --custom-option-borderColor: var(--custom-option-hover-borderColor);
+}
+
+/* focused and active state */
+
+.c-option--hidden:focus + .c-custom-option,
+.c-option--hidden:active + .c-custom-option {
+    --custom-option-borderColor: var(--custom-option-focus-borderColor);
+    --custom-option-boxShadow: var(--custom-option-focus-boxShadow);
+}
+
+/* checked state */
+
+.c-option--hidden:checked + .c-custom-option .c-custom-option__symbol {
+    opacity: 1; /* Show the symbol when the invisible checkbox/radio button is checked */
+    transform: scale(1);
+}
+
+.c-custom-option__fake-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    background: var(--custom-option-background);
+    border: 1px solid var(--custom-option-borderColor);
+    transition: all var(--custom-option-transition);
+    box-shadow: var(--custom-option-boxShadow, 0);
+}
+
+.c-custom-option__symbol {
+    display: block;
+    opacity: 0; /* Hide the symbol initially */
+    transform: scale(.5);
+    transition: transform var(--custom-option-transition), opacity var(--custom-option-transition);
+}
+
+
+/*
+    CUSTOM RADIO
+*/
+.c-custom-option__fake-input--radio .c-custom-option__symbol {
+    background-color: var(--custom-option__symbol-fill);
+    border-radius: 100%;
+    width: 6px;
+    height: 6px;
+}
+
+.c-custom-option__fake-input--radio {
+    border-radius: 100%;
+}
+
+
+
 
 
 /*------------------------------------*\
