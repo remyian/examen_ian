@@ -14,18 +14,21 @@
     src: url("../fonts/Inter-SemiBold.woff2") format("woff2")
 }
 
-
 /*------------------------------------*\
 #Variables
 \*------------------------------------*/
 
 :root {
     /* colors */
-
+    --global-color-background: #F6F5F7;
+    --global-color-alpha: #DCDAE0;
+    --global-color-alpha-dark: #4E00EA;
     /* fonts */
+    --global-color-text: #47454D;
+    --global-color-text-header: #17161A;
 
     /* shadows */
-
+    --global-color-shadow: #DCDAE0;
     /* borders */
 
     /* transitions */
@@ -340,7 +343,15 @@ input:disabled {
 /*------------------------------------*\
 #COMPONENTS
 \*------------------------------------*/
+.c-header-balk{
+    height: 0.5em;
+    background-color: var(--global-color-alpha-dark);
+    margin-bottom: 2em;
+}
 
+.c-form{
+    margin: 2em;
+}
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
