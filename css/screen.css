@@ -21,11 +21,12 @@
 :root {
     /* colors */
     --global-color-background: #F6F5F7;
-    --global-color-alpha: #4E00EA;
+    --global-color-alpha: #ffffff;
     --global-color-alpha-dark: #4E00EA;
+    --global-color-fill: #DCDAE0;
 
-    --global-color-neutral-xxxx-light: #F5F6FA;
-    --global-color-neutral-xxx-light: #E2E3E7;
+    --global-color-neutral-xxxx-light: #DCDAE0;
+    --global-color-neutral-xxx-light: #DCDAE0;
     --global-color-neutral-xx-light: #caccd4;
     --global-color-neutral-x-light: #b5b6c0;
     --global-color-neutral-light: #a0a1ad;
@@ -481,11 +482,13 @@ input:disabled {
     --custom-option-transition: var(--global-transitionDuration-alpha) var(--global-transitionEasing-out);
     display: flex;
     align-items: center;
+    
 }
 
 
 .c-option {
     margin-right: var(--global-whitespace-sm);
+    
 }
 
 .c-option--hidden:focus + .c-custom-option,
@@ -591,6 +594,7 @@ input:disabled {
 
 .c-custom-option__fake-input--radio {
     border-radius: 100%;
+    background-color: var(--global-color-fill);
 }
 
 
