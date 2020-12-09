@@ -25,6 +25,7 @@
     --global-color-alpha: #4E00EA;
     --global-color-alpha-dark: #4E00EA;
     --global-color-fill: #DCDAE0;
+    --global-color-box: #FFFFFF;
 
     --global-color-neutral-xxxx-light: #DCDAE0;
     --global-color-neutral-xxx-light: #DCDAE0;
@@ -44,6 +45,7 @@
     /* fonts */
     --global-color-text: #47454D;
     --global-color-text-header: #17161A;
+    --global-color-text-light:#A2A1A6;
 
     /* shadows */
     --global-color-shadow: #DCDAE0;
@@ -78,6 +80,29 @@
     --global-input-focus-boxShadowSpread: 0 0 0 3px;
     --global-input-focus-boxShadowColor: var(--global-color-alpha-x-transparent);
     --global-input-error-boxShadowColor: var(--global-color-error-x-transparent);
+}
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --global-color-background: #17161A;
+        --global-page-backgroundColor: var(--global-color-neutral-xxxx-dark);
+        --global-color-box: #232226;
+
+        --global-color-text: #FFFFFF;
+        --global-color-text-header: #DCDAE0;
+        --global-color-text-light:#787480;
+
+        --global-label-color: var(--global-color-neutral-xx-light);
+        --global-placeholder-color: var(--global-color-neutral-dark);
+        --global-input-backgroundColor: var(--global-color-neutral-xxxx-dark);
+        --global-input-color: var(--global-color-neutral-xxxx-light);
+        --global-input-borderColor: var(--global-input-backgroundColor);
+        --global-input-hover-borderColor: var(--global-input-backgroundColor);
+        --global-input-focus-borderColor: var(--global-input-backgroundColor);
+        --global-input-focus-boxShadowColor: var(--global-color-alpha-transparent);
+        --global-input-error-boxShadowColor: var(--global-color-error-transparent);
+    }
 }
 
 /*------------------------------------*\
@@ -272,11 +297,10 @@ input:disabled {
         margin-bottom: 3em;
         max-width: 32em;
         max-height: 50em;
-        background-color: white;
+        background-color: var(--global-color-box);
         margin-left: auto;
         margin-right: auto;
         width: 100%;
-       
     } 
 }
 
@@ -616,14 +640,25 @@ input:disabled {
     display: grid;
     grid-row-gap: 0.5em;
     grid-column-gap: 0.5em;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 } 
+
+@media (min-width: 420px) {
+    .c-board {
+        display: grid;
+        grid-row-gap: 0.5em;
+        grid-column-gap: 0.5em;
+        grid-template-columns: repeat(5, 1fr);
+    } 
+}
+
 
 /* textarea */
 .c-textarea{
     display: block;
     width: 100%;
     height: 5em;
+    color: var();
 }
 
 /* buttons */
@@ -690,8 +725,8 @@ input:disabled {
 
 /* progressbar  */
 .progress-bar {
-    width: 70%;
-    background-color: #e0e0e0;
+    width: 60%;
+    background-color: var(--global-color-text-light);
     border-radius: 1em;
     display: inline-block;
     margin-right: 3em;
@@ -706,7 +741,9 @@ input:disabled {
 
 .c-text{
     display: inline-block;
+    color: var(--global-color-text);
 }
+
 
 /*------------------------------------*\
 #UTILITIES
