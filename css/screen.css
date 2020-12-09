@@ -509,14 +509,12 @@ input:disabled {
     --custom-option__symbol-fill: var(--global-color-alpha);
     --custom-option-transition: var(--global-transitionDuration-alpha) var(--global-transitionEasing-out);
     display: flex;
-    align-items: center;
-    
+    align-items: center; 
 }
 
 
 .c-option {
     margin-right: var(--global-whitespace-sm);
-    
 }
 
 .c-option--hidden:focus + .c-custom-option,
@@ -528,6 +526,7 @@ input:disabled {
 .c-option--hidden:checked + .c-custom-option .c-custom-option__symbol {
     opacity: 1; /* Show the symbol when the invisible checkbox/radio button is checked */
     transform: scale(1);
+    background-color: var(--global-color-background);
 }
 
 .c-option--hidden:focus + .c-custom-toggle,
@@ -623,6 +622,10 @@ input:disabled {
 .c-custom-option__fake-input--radio {
     border-radius: 100%;
     background-color: var(--global-color-fill);
+}
+.c-custom-option__fake-input--radio:hover {
+    border-radius: 100%;
+    background-color: var(--global-color-alpha);
 }
 
 /*
