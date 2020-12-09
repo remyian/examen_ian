@@ -21,6 +21,7 @@
 :root {
     /* colors */
     --global-color-background: #F6F5F7;
+    --global-color-alpha-light: #6A00FD;
     --global-color-alpha: #4E00EA;
     --global-color-alpha-dark: #4E00EA;
     --global-color-fill: #DCDAE0;
@@ -629,12 +630,59 @@ input:disabled {
 .c-button-terug{
     display: inline-block;
     margin: 0 auto;
-    width: 49%;
+    width: 49%; 
+    
+    background-image: url(/id-labo-examen-2020-remyian/img/svg/arrow-left.svg);
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+    /* put the height and width of your image here */
+    height: 50px;
+    border: none;
+    background-color: white;
 }
+
 .c-button-volgende{
     display: inline-block;
     margin: 0 auto;
     width: 49%;
+
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: var(--button-borderRadius, var(--global-borderRadius));
+    border: var(--button-borderWidth, var(--global-borderWidth)) solid var(--button-borderColor, var(--global-color-alpha-dark));
+    background-color: var(--button-backgroundColor, var(--global-color-alpha));
+    color: #fff;
+    padding: calc(var(--global-baseline) * 1.5 - var(--button-borderWidth, var(--global-borderWidth))) var(--global-whitespace-md);
+    line-height: calc(var(--global-baseline) * 3);
+    outline: none;
+    box-shadow: var(--button-boxShadow, 0);
+    transition: all var(--global-transitionDuration-alpha) var(--global-transitionEasing-out);
+}
+
+.c-button-volgende:hover {
+    border-color: var(--button-hover-borderColor, var(--global-color-alpha-dark));
+    background-color: var(--button-hover-backgroundColor, var(--global-color-alpha-light));
+}
+
+.c-button-volgende:focus {
+    background-color: var(--button-focus-backgroundColor, var(--global-color-alpha));
+    border-color: var(--button-focus-borderColor, var(--global-color-alpha-dark));
+    box-shadow: var(--global-input-focus-boxShadowSpread) var(--button-focus-boxShadowColor, var(--global-input-focus-boxShadowColor));
+}
+
+.c-button-volgende:active {
+    background-color: var(--button-active-backgroundColor, var(--global-color-alpha-dark));
+    border-color: var(--button-active-borderColor, var(--global-color-alpha-dark));
+    box-shadow: var(--button-active-boxShadow, 0);
+}
+
+@media (prefers-color-scheme: dark) {
+    .c-button-volgende {
+        --button-borderColor: var(--global-color-alpha);
+        --button-hover-borderColor: var(--global-color-alpha-light);
+        --button-active-borderColor: var(--global-color-alpha-dark);
+        --button-focus-borderColor: var(--global-color-alpha-x-dark);
+    }
 }
 
 /*------------------------------------*\
